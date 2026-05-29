@@ -3,8 +3,7 @@ library(gt)
 source("funciones.R")
 source("localidades.R")
 
-
-localidades_palindromo_tabla <- localidades |>
+localidades_tabla <- localidades |>
   st_drop_geometry() |>
   mutate(palindromo = palindromo(nombre_localidad)) |>
   filter(palindromo) |>
@@ -13,7 +12,7 @@ localidades_palindromo_tabla <- localidades |>
 color_fondo <- "#FFFDF2"
 color_texto <- "#584837"
 
-localidades_palindromo_tabla |>
+localidades_tabla |>
   arrange(codigo_region) |>
   mutate(nombre_region = str_replace(nombre_region, "De", "de")) |>
   mutate(
@@ -68,6 +67,6 @@ localidades_palindromo_tabla |>
   tab_style(
     style = css(padding.left = "20px", padding.right = "20px"),
     locations = list(cells_body(), cells_column_labels())
-  ) |>
-  # print() |>
-  gtsave("tabla.png", )
+  ) #|>
+# print() |>
+# gtsave("tabla.png", )
