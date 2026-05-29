@@ -4,3 +4,5 @@
 .httr-oauth
 .DS_Store
 .quarto
+datos/*
+!datos/CUT_2018_v04.xls
